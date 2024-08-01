@@ -29,8 +29,8 @@
 
 #include <string>
 
-#include "class_loader/meta_object.hpp"
-#include "class_loader/class_loader.hpp"
+#include "class_loader_melodic/meta_object.hpp"
+#include "class_loader_melodic/class_loader.hpp"
 
 namespace class_loader
 {

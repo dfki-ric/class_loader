@@ -43,9 +43,9 @@
 
 #include "console_bridge/console.h"
 
-#include "class_loader/class_loader_core.hpp"
-#include "class_loader/register_macro.hpp"
-#include "class_loader/visibility_control.hpp"
+#include "class_loader_melodic/class_loader_core.hpp"
+#include "class_loader_melodic/register_macro.hpp"
+#include "class_loader_melodic/visibility_control.hpp"
 
 namespace class_loader
 {

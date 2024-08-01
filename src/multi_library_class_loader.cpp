@@ -27,7 +27,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "class_loader/multi_library_class_loader.hpp"
+#include "class_loader_melodic/multi_library_class_loader.hpp"
 
 #include <cstddef>
 #include <string>

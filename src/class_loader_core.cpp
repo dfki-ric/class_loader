@@ -27,8 +27,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "class_loader/class_loader_core.hpp"
-#include "class_loader/class_loader.hpp"
+#include "class_loader_melodic/class_loader_core.hpp"
+#include "class_loader_melodic/class_loader.hpp"
 
 #include <Poco/SharedLibrary.h>
 

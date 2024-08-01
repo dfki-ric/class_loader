@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
-project(class_loader CXX)
+project(class_loader_melodic CXX)
+
+set(BUILD_SHARED_LIBS ON)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
@@ -25,7 +27,7 @@ if(${catkin_FOUND})
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME} ${Poco_LIBRARIES}
     DEPENDS Boost Poco console_bridge
-    CFG_EXTRAS class_loader-extras.cmake
+    CFG_EXTRAS class_loader_melodic-extras.cmake
   )
 else()
   message("-- catkin not found")
@@ -49,12 +51,12 @@ set(${PROJECT_NAME}_SRCS
   src/multi_library_class_loader.cpp
 )
 set(${PROJECT_NAME}_HDRS
-  include/class_loader/class_loader.hpp
-  include/class_loader/class_loader_core.hpp
-  include/class_loader/exceptions.hpp
-  include/class_loader/meta_object.hpp
-  include/class_loader/multi_library_class_loader.hpp
-  include/class_loader/register_macro.hpp
+  include/class_loader_melodic/class_loader.hpp
+  include/class_loader_melodic/class_loader_core.hpp
+  include/class_loader_melodic/exceptions.hpp
+  include/class_loader_melodic/meta_object.hpp
+  include/class_loader_melodic/multi_library_class_loader.hpp
+  include/class_loader_melodic/register_macro.hpp
 )
 if(WIN32)
   add_library(${PROJECT_NAME} SHARED ${${PROJECT_NAME}_SRCS} ${${PROJECT_NAME}_HDRS})
@@ -73,11 +75,13 @@ install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
-install(DIRECTORY include/class_loader/
+install(DIRECTORY include/class_loader_melodic/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
 
-catkin_install_python(PROGRAMS scripts/class_loader_headers_update.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+if(catkin_FOUND)
+  catkin_install_python(PROGRAMS scripts/class_loader_headers_update.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+endif()
 
 if(CATKIN_ENABLE_TESTING)
   add_subdirectory(test)
@@ -87,7 +91,7 @@ if(NOT catkin_FOUND)
   set(TARGET_NAME ${PROJECT_NAME})
   set(PKGCONFIG_LIBS
     ${Boost_LIBRARIES}
-    ${console_bridge_LIBRARIES}
+    #${console_bridge_LIBRARIES}
     ${Poco_LIBRARIES}
   )
 

@@ -41,9 +41,9 @@
 #include <utility>
 #include <vector>
 
-#include "class_loader/exceptions.hpp"
-#include "class_loader/meta_object.hpp"
-#include "class_loader/visibility_control.hpp"
+#include "class_loader_melodic/exceptions.hpp"
+#include "class_loader_melodic/meta_object.hpp"
+#include "class_loader_melodic/visibility_control.hpp"
 
 // forward declaration
 namespace Poco
