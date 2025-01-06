@@ -31,7 +31,7 @@ if(${catkin_FOUND})
   )
 else()
   message("-- catkin not found")
-  set(Poco_DIR cmake)
+  # set(Poco_DIR cmake)
   find_package(Poco REQUIRED COMPONENTS Foundation)
   set(CATKIN_GLOBAL_BIN_DESTINATION bin)
   set(CATKIN_GLOBAL_LIB_DESTINATION lib)
@@ -92,7 +92,7 @@ if(NOT catkin_FOUND)
   set(PKGCONFIG_LIBS
     #${Boost_LIBRARIES}
     #${console_bridge_LIBRARIES}
-    ${Poco_LIBRARIES}
+    # ${Poco_LIBRARIES}
   )
 
   # Prepare and install necessary files to support finding of the library
