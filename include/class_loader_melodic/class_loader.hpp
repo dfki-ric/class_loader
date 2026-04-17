@@ -128,7 +128,7 @@ public:
   {
     return std::shared_ptr<Base>(
       createRawInstance<Base>(derived_class_name, true),
-      boost::bind(&ClassLoader::onPluginDeletion<Base>, this, _1));
+      boost::bind(&ClassLoader::onPluginDeletion<Base>, this, boost::placeholders::_1));
   }
 
   /**
@@ -141,7 +141,7 @@ public:
   {
     return boost::shared_ptr<Base>(
       createRawInstance<Base>(derived_class_name, true),
-      boost::bind(&ClassLoader::onPluginDeletion<Base>, this, _1));
+      boost::bind(&ClassLoader::onPluginDeletion<Base>, this, boost::placeholders::_1));
   }
 
   /**
@@ -162,7 +162,7 @@ public:
     Base * raw = createRawInstance<Base>(derived_class_name, true);
     return std::unique_ptr<Base, DeleterType<Base>>(
       raw,
-      boost::bind(&ClassLoader::onPluginDeletion<Base>, this, _1));
+      boost::bind(&ClassLoader::onPluginDeletion<Base>, this, boost::placeholders::_1));
   }
 
   /**
